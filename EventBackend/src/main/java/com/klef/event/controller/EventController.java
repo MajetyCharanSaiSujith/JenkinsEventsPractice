@@ -1,0 +1,48 @@
+package com.klef.event.controller;
+
+import com.klef.event.model.Event;
+import com.klef.event.service.EventService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/events")
+@CrossOrigin(origins = "*") // allow frontend to call
+public class EventController {
+
+    @Autowired
+    private EventService eventService;
+
+    // ✅ Add Event
+    @PostMapping("/add")
+    public ResponseEntity<String> addEvent(@RequestBody Event event) {
+        String result = eventService.addEvent(event);
+        return ResponseEntity.ok(result);
+    }
+
+    // ✅ Update Event
+    @PutMapping("/update/{id}")
+    public ResponseEntity<String> updateEvent(
+            @PathVariable Long id,
+            @RequestBody Event event) {
+        String result = eventService.updateEvent(id, event);
+        return ResponseEntity.ok(result);
+    }
+
+    // ✅ Delete Event
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deleteEvent(@PathVariable Long id) {
+        String result = eventService.deleteEvent(id);
+        return ResponseEntity.ok(result);
+    }
+
+    // ✅ View All Events
+    @GetMapping("/all")
+    public ResponseEntity<List<Event>> getAllEvents() {
+        List<Event> events = eventService.getAllEvents();
+        return ResponseEntity.ok(events);
+    }
+}

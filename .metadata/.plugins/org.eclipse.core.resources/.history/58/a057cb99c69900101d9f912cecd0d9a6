@@ -1,0 +1,5 @@
+package com.klef.event.service;
+
+public class EventService {
+
+}
