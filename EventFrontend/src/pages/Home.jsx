@@ -51,7 +51,7 @@ function Home() {
         </div>
 
         <div className="feature-card bg-white shadow-md rounded-lg p-6 text-center border-t-4 border-orange-500">
-          <h3 className="text-xl font-semibold text-orange-600 mb-2">📊 Insights</h3>
+          <h3 className="text-xl font-semibold text-orange-600 mb-2">📊 Insight</h3>
           <p className="text-gray-600">
             Track your events and analyze participation trends effectively.
           </p>
